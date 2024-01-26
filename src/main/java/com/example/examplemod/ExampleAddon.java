@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.*;
 import org.zeith.terraria.api.crafting.events.RegisterCraftingEvent;
 import org.zeith.terraria.api.mod.ITerrariaMod;
-import org.zeith.terraria.utils.forge.DeferredRegistries;
+import org.zeith.terraria.init.ItemsTC;
 
 @Mod(
 		modid = ExampleAddon.MODID,
@@ -26,8 +26,6 @@ public class ExampleAddon
 	
 	public static final String MODID = "examplemod";
 	public static final String NAME = "Example Mod";
-	
-	public final DeferredRegistries registries = new DeferredRegistries(this);
 	
 	@SidedProxy( // TODO: Update package names whenever you refactor!
 			clientSide = "com.example.examplemod.proxy.ClientProxy",
@@ -61,16 +59,11 @@ public class ExampleAddon
 		HammerCore.registerKernelsForMod(MODID);
 	}
 	
-	@Override
-	public DeferredRegistries getRegistries()
-	{
-		return registries;
-	}
-	
 	@SubscribeEvent
 	public void addRecipes(RegisterCraftingEvent e)
 	{
 		e.addHeavyWorkBenchRecipe(BlocksEM.EXAMPLE_BAR.stack(), BlocksEM.EXAMPLE_BLOCK.stack(4));
+		e.addHandRecipe(BlocksEM.EXAMPLE_TORCH.stack(3), BlocksEM.EXAMPLE_BLOCK.stack(), ItemsTC.GEL.stack());
 	}
 	
 	// This is left like so intentionally.

@@ -6,6 +6,7 @@ import org.zeith.terraria.api.items.IRareItem;
 import org.zeith.terraria.api.npc.Economy;
 import org.zeith.terraria.common.content.blocks.base.BlockBaseTC;
 import org.zeith.terraria.common.content.blocks.simple.BlockBar;
+import org.zeith.terraria.common.content.blocks.torches.TorchEntry;
 
 @SimplyRegister
 public class BlocksEM
@@ -16,8 +17,13 @@ public class BlocksEM
 	@RegistryName("bricks/example")
 	public static final ExampleBrick EXAMPLE_BRICK = new ExampleBrick();
 
+	@RegistryName("torches/example")
+	public static final TorchEntry EXAMPLE_TORCH = new TorchEntry()
+			.withColor(0x55FFFF);
+	
 	@RegistryName("bars/example")
-	public static final BlockBaseTC EXAMPLE_BAR = new BlockBar("example", IRareItem.ItemRarity.BLUE)
-			.sell(Economy.SILVER_VALUE)
+	public static final BlockBaseTC EXAMPLE_BAR = new BlockBar()
+			.withValue(Economy.SILVER_VALUE)
+			.withRarity(IRareItem.ItemRarity.BLUE)
 			.inTab(ItemTabsEM.ITEMS_TAB, ItemTabsEM.BLOCKS_TAB);
 }

@@ -3,7 +3,7 @@ package com.example.examplemod.common.content.items;
 import com.example.examplemod.init.ItemTabsEM;
 import org.zeith.terraria.api.npc.Economy;
 import org.zeith.terraria.common.content.items.base.ItemBaseTC;
-import org.zeith.terraria.init.items.ItemsTC;
+import org.zeith.terraria.init.ItemsTC;
 
 public class ExampleItem
 		extends ItemBaseTC

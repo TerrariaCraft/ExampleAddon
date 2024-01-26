@@ -10,5 +10,5 @@ public class ItemsEM
 	public static final ExampleItem EXAMPLE_ITEM = new ExampleItem();
 
 	@RegistryName("swords/example")
-	public static final ExampleSword EXAMPLE_SWORD = new ExampleSword(14, "example");
+	public static final ExampleSword EXAMPLE_SWORD = new ExampleSword(14);
 }
