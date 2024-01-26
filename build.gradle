@@ -84,7 +84,7 @@ dependencies {
     implementation("net.minecraftforge:mergetool:0.2.3.3") { force = true }
     minecraft "net.minecraftforge:forge:${config.minecraft_version}-${config.forge_version}"
 
-    def deps = new String(Base64.getDecoder().decode(config.tc_build_data)).replace('\r', '').replace('\n', '').split("[|]")
+    def deps = new String(Base64.getDecoder().decode(tc_build_data)).replace('\r', '').replace('\n', '').split("[|]")
     for (final def d in deps) {
         tcImplementation fg.deobf(d)
     }
