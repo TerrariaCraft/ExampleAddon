@@ -1,7 +1,6 @@
 package com.example.examplemod.common.content.blocks;
 
-import com.example.examplemod.init.ItemTabsEM;
-import com.example.examplemod.init.ItemsEM;
+import com.example.examplemod.init.*;
 import net.minecraft.block.material.Material;
 import org.zeith.terraria.api.items.IRareItem;
 import org.zeith.terraria.common.content.blocks.base.BlockBaseTC;
@@ -13,8 +12,6 @@ public class ExampleBlock
 	public ExampleBlock()
 	{
 		super(Material.ROCK);
-
-		setTranslationKey("example_block");
 
 		inTab(ItemTabsEM.BLOCKS_TAB);
 	}

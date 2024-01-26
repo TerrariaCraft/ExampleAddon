@@ -1,20 +1,15 @@
 package com.example.examplemod.common.content.items;
 
 import com.example.examplemod.init.ItemTabsEM;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import org.zeith.terraria.api.npc.Economy;
-import org.zeith.terraria.api.tooltip.I18nTooltipElement;
-import org.zeith.terraria.api.tooltip.TooltipLine;
 import org.zeith.terraria.common.content.items.base.ItemBaseTC;
 import org.zeith.terraria.init.items.ItemsTC;
 
 public class ExampleItem
 		extends ItemBaseTC
 {
-	public ExampleItem(String name)
+	public ExampleItem()
 	{
-		setTranslationKey(name);
 		this.rarity = ItemRarity.BLUE;
 		this.maxStackSize = 99;
 		this.hasTooltip = true;

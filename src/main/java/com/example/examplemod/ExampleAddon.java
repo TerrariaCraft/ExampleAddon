@@ -1,8 +1,8 @@
 package com.example.examplemod;
 
-import com.example.examplemod.init.*;
+import com.example.examplemod.init.BlocksEM;
 import com.example.examplemod.proxy.CommonProxy;
-import com.zeitheron.hammercore.internal.SimpleRegistration;
+import com.zeitheron.hammercore.HammerCore;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.*;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -16,7 +16,7 @@ import org.zeith.terraria.utils.forge.DeferredRegistries;
 @Mod(
 		modid = ExampleAddon.MODID,
 		name = ExampleAddon.NAME,
-		version = ExampleAddon.VERSION,
+		version = "@VERSION@", // This gets automatically replaced with actual version from build.txt when compiling the mod into jarfile.
 		dependencies = "required-after:terraria"
 )
 public class ExampleAddon
@@ -26,7 +26,6 @@ public class ExampleAddon
 	
 	public static final String MODID = "examplemod";
 	public static final String NAME = "Example Mod";
-	public static final String VERSION = "1.0";
 	
 	public final DeferredRegistries registries = new DeferredRegistries(this);
 	
@@ -58,13 +57,8 @@ public class ExampleAddon
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		// TODO: this is going to get drastically changed with TerrariaCraft 12.6.1
-		
-		// Registers all items
-		SimpleRegistration.registerFieldItemsFrom(ItemsEM.class, MODID, null);
-		
-		// Registers all blocks
-		SimpleRegistration.registerFieldBlocksFrom(BlocksEM.class, MODID, null);
+		// This performs registration of things in time!
+		HammerCore.registerKernelsForMod(MODID);
 	}
 	
 	@Override
