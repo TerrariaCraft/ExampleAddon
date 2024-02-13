@@ -39,6 +39,14 @@ minecraft {
         client {
             workingDirectory project.file('run/client')
 
+            jvmArgs([
+                    '-Dfml.coreMods.load=org.zeith.terraria.asm.TerrariaCraftCoremod,com.zeitheron.hammercore.asm.HCASM',
+                    '-Dmixin.checks.interfaces=true',
+                    '-Dmixin.debug.export=true',
+                    "-XX:+UseConcMarkSweepGC",
+                    "-XX:-UseAdaptiveSizePolicy"
+            ])
+
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
             property 'forge.logging.console.level', 'debug'
             property 'log4j.configurationFile', 'log4j2.xml'
@@ -61,8 +69,10 @@ minecraft {
 configurations {
     embed
     tcImplementation
+    tcModsFolder
     implementation.extendsFrom(embed)
-    compileOnly.extendsFrom(tcImplementation)
+    implementation.extendsFrom(tcImplementation)
+    implementation.extendsFrom(tcModsFolder)
 }
 
 repositories {
@@ -86,7 +96,15 @@ dependencies {
 
     def deps = new String(Base64.getDecoder().decode(tc_build_data)).replace('\r', '').replace('\n', '').split("[|]")
     for (final def d in deps) {
-        tcImplementation fg.deobf(d)
+        if (d.endsWith(">")) {
+            d = d.substring(0, d.length() - 1)
+            if (d.endsWith("!")) tcModsFolder d.substring(0, d.length() - 1)
+            else tcModsFolder fg.deobf(d)
+            continue
+        }
+
+        if (d.endsWith("!")) tcImplementation d.substring(0, d.length() - 1)
+        else tcImplementation fg.deobf(d)
     }
 
     ////// UTILITY STUFF //////
@@ -270,7 +288,7 @@ tasks.register('copyTerrariaCraftDepsToRuntime') {
                     it.delete()
             }
         }
-        configurations.tcImplementation.files.each {
+        configurations.tcModsFolder.files.each {
             directories.each { File dir ->
                 def runFile = new File(dir, "__gradle__${it.name}")
                 runFile.delete()
