@@ -1,6 +1,7 @@
 package com.example.examplemod.common.content.items;
 
 import com.example.examplemod.init.ItemTabsEM;
+import org.zeith.terraria.api.items.ItemRarity;
 import org.zeith.terraria.api.npc.Economy;
 import org.zeith.terraria.common.content.items.base.ItemBaseTC;
 import org.zeith.terraria.init.ItemsTC;
@@ -10,10 +11,10 @@ public class ExampleItem
 {
 	public ExampleItem()
 	{
-		this.rarity = ItemRarity.BLUE;
 		this.maxStackSize = 99;
 		this.hasTooltip = true;
-		this.sellValue = Economy.COPPER_VALUE * 70;
+		withRarity(ItemRarity.BLUE);
+		withValue(Economy.COPPER_VALUE * 70);
 		inTab(ItemTabsEM.ITEMS_TAB);
 	}
 

@@ -1,10 +1,9 @@
 package com.example.examplemod.init;
 
 import com.example.examplemod.common.content.blocks.*;
-import com.google.common.base.Suppliers;
 import com.zeitheron.hammercore.annotations.*;
 import lombok.var;
-import org.zeith.terraria.api.items.IRareItem;
+import org.zeith.terraria.api.items.ItemRarity;
 import org.zeith.terraria.api.npc.Economy;
 import org.zeith.terraria.common.content.blocks.base.BlockBaseTC;
 import org.zeith.terraria.common.content.blocks.simple.BlockBar;
@@ -21,13 +20,14 @@ public class BlocksEM
 	
 	@RegistryName("torches/example")
 	public static final TorchEntry EXAMPLE_TORCH = torchToTab(new TorchEntry()
+			.withRarity(ItemRarity.BLUE)
 			.withColor(0x55FFFF)
 	);
 	
 	@RegistryName("bars/example")
 	public static final BlockBaseTC EXAMPLE_BAR = new BlockBar()
 			.withValue(Economy.SILVER_VALUE)
-			.withRarity(IRareItem.ItemRarity.BLUE)
+			.withRarity(ItemRarity.BLUE)
 			.inTab(ItemTabsEM.ITEMS_TAB, ItemTabsEM.BLOCKS_TAB);
 	
 	static TorchEntry torchToTab(TorchEntry entry) // All this method does is adding torch to the blocks tab.
