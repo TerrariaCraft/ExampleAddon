@@ -13,7 +13,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'idea'
 apply plugin: 'maven-publish'
 apply plugin: 'java'
-apply from: 'https://maven.zeith.org/org/zeith/FixupFML/fix-v1.0.1-usercache.gradle'
+// apply from: 'https://maven.zeith.org/org/zeith/FixupFML/fix-v1.0.1-usercache.gradle'
 
 ext.configFile = file("build.txt")
 configFile.withReader {
@@ -304,7 +304,7 @@ tasks.register('copyTerrariaCraftDepsToRuntime') {
 afterEvaluate {
     tasks['downloadAssets'].dependsOn.add('copyTerrariaCraftDepsToRuntime')
 
-    tasks['downloadAssets'].dependsOn.add('fixupForgeJars')
+    // tasks['downloadAssets'].dependsOn.add('fixupForgeJars')
 }
 
 publishing {
