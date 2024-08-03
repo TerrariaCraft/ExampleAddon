@@ -48,7 +48,7 @@ minecraft {
                     '-Dmixin.debug.export=true',
                     "-XX:+UseConcMarkSweepGC",
                     "-XX:-UseAdaptiveSizePolicy",
-                    "-Djava.library.path=${natives_dir}"
+                    new String("-Djava.library.path=${natives_dir}")
             ])
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
