@@ -22,3 +22,5 @@ required_mods=hammer-lib;
 optional_mods=
 incompatible_mods=
 embedded_mods=
+
+# MC Stuff

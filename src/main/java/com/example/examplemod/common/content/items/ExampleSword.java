@@ -18,13 +18,13 @@ public class ExampleSword
 		this.useTime = 25; // 60 is 1 second
 		inTab(ItemTabsEM.ITEMS_TAB);
 	}
-
+	
 	@Override
-	public float getWeaponDamageAngle(ItemStack stack, PlayerDataTC data)
+	public float getWeaponDamageAngle(PlayerDataTC data, ItemStack stack)
 	{
 		return 45.0F;
 	}
-
+	
 	@Override
 	public void addRecipes(Craftery c)
 	{
