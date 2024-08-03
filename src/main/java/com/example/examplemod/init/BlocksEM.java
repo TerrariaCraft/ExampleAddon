@@ -10,22 +10,22 @@ import org.zeith.terraria.common.content.blocks.simple.BlockBar;
 import org.zeith.terraria.common.content.blocks.torches.TorchEntry;
 
 @SimplyRegister
-public class BlocksEM
+public interface BlocksEM
 {
 	@RegistryName("example_block")
-	public static final ExampleBlock EXAMPLE_BLOCK = new ExampleBlock();
+	ExampleBlock EXAMPLE_BLOCK = new ExampleBlock();
 	
 	@RegistryName("bricks/example")
-	public static final ExampleBrick EXAMPLE_BRICK = new ExampleBrick();
+	ExampleBrick EXAMPLE_BRICK = new ExampleBrick();
 	
 	@RegistryName("torches/example")
-	public static final TorchEntry EXAMPLE_TORCH = torchToTab(new TorchEntry()
+	TorchEntry EXAMPLE_TORCH = torchToTab(new TorchEntry()
 			.withRarity(ItemRarity.BLUE)
 			.withColor(0x55FFFF)
 	);
 	
 	@RegistryName("bars/example")
-	public static final BlockBaseTC EXAMPLE_BAR = new BlockBar()
+	BlockBaseTC EXAMPLE_BAR = new BlockBar()
 			.withValue(Economy.SILVER_VALUE)
 			.withRarity(ItemRarity.BLUE)
 			.inTab(ItemTabsEM.ITEMS_TAB, ItemTabsEM.BLOCKS_TAB);
