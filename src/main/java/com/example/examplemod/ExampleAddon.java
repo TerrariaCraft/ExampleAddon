@@ -25,7 +25,7 @@ import org.zeith.terraria.init.ItemsTC;
 public class ExampleAddon
 		implements ITerrariaMod
 {
-	public static final Logger LOG = LogManager.getLogger("ExampleAddon");
+	public static final Logger LOG = LogManager.getLogger("ExampleMod");
 	
 	public static final String MODID = "examplemod";
 	public static final String NAME = "Example Mod";
