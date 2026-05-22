@@ -15,8 +15,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'java'
 // apply from: 'https://maven.zeith.org/org/zeith/FixupFML/fix-v1.0.1-usercache.gradle'
 
-ext.configFile = file("build.txt")
-configFile.withReader {
+file("build.txt").withReader {
     def prop = new Properties()
     prop.load(it)
     project.ext.config = new ConfigSlurper().parse(prop)
@@ -24,6 +23,16 @@ configFile.withReader {
         return config.isSet(key);
     }
 }
+
+def localProps = new Properties()
+rootProject.file("local.properties").withInputStream {
+    localProps.load(it)
+}
+
+def tc_build_data = localProps.getProperty("tc_build_data");
+def tc_checksums = localProps.getProperty("tc_checksums");
+def mc_username = localProps.getProperty("mc_username");
+def mc_uuid = localProps.getProperty("mc_uuid");
 
 version = "${config.mod_version}"
 group = "org.zeith.${config.mod_id}"
@@ -55,7 +64,9 @@ minecraft {
             property 'log4j.configurationFile', 'log4j2.xml'
             args([
                     "-username",
-                    System.env.MC_USERNAME
+                    mc_username,
+                    "-uuid",
+                    mc_uuid
             ])
         }
 
