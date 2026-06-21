@@ -26,7 +26,4 @@ build
 # other
 *.rar
 *.jks
-~ GIT/
-PublicBuilds/
-zCFS/Bedrock2JavaAnim/
-~SubProjects/
+local.properties
