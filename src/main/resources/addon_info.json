@@ -14,7 +14,7 @@
 	},
 	"compatibility": {
 		"public_versions": [
-			"[12.5.29,12.6.)"
+			"[12.7.1,12.8.)"
 		],
 		"idev_versions": [
 			"[idev-,)"
